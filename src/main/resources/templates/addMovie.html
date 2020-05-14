@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie filmów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<form action="/add" method="post" th:object="${movie}">
+
+    <div class="form-group">
+        <label>Tytuł filmu</label>
+        <input type="text" th:field="*{title}">
+    </div>
+
+    Data premiery:<br/>
+    <input class="form-group" type="date" th:field="*{premiereDate}">
+
+    <div class="form-group">
+        <label>Opis:</label>
+        <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Wybierz kategorię filmu:</label>
+        <select class="form-control" th:field="*{category}">
+            <option value="ADVENTURE">Przygodowy</option>
+            <option value="FAMILY">Familijny</option>
+            <option value="FANTASY">Fantasy</option>
+            <option value="ACTION">Akcji</option>
+            <option value="SCIENCE_FICTION">Science fiction</option>
+            <option value="ROMANTIC">Romantyczny</option>
+            <option value="HORROR">Horror</option>
+            <option value="THRILLER">Thriller</option>
+            <option value="CRIME">Kryminalny</option>
+            <option value="DOCUMENTARY">Dokumentalny</option>
+            <option value="COMEDY">Komedia</option>
+        </select>
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Dodaj">
+</form>
+</form>
+</body>
+</html>
